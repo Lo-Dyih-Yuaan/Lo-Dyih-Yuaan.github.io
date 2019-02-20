@@ -56,6 +56,11 @@ PixelCanvas.prototype = {
 		this.fillColor = temp;
 		console.log(pattern.length, this.width*this.height);
 	},
+	save: function () {
+		let imgDataURI = this.canvas.toDataURL("image/png");
+		let image = imgDataURI.replace("image/png", "image/octet-stream");
+		window.location.href = image;
+	},
 	set fillColor(fillColor) {
 		this.fillColorName = fillColor;
 		let ctx = this.canvas.getContext("2d");
