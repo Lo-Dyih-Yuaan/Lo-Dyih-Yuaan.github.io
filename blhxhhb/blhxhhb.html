@@ -26,29 +26,27 @@
 		if (x%elementSize >= borderSize && y%elementSize >= borderSize)
 			pixelCanvas.daub(i, j);
 	};
+	function clickButton(text, onclick, style = {}) {
+		let button = document.createElement('button');
+		button.textContent = text;
+		button.onclick = onclick;
+		Object.assign(button.style, style);
+		return button;
+	}
 	let colorsButton = document.getElementById("colors");
 	colorsButton.style.display='grid';
-	colorsButton.style.gridTemplateColumns = 'repeat(8, 1fr)';
-	for (let c of "ABCDEFGZ") {
-		let button = document.createElement('button');
-		button.textContent = (c == 'Z' ? "清除" : c);
-		button.style.background = `linear-gradient(to right, ${anshan2.colors[c]}, white, ${anshan2.colors[c]})`;
-		button.onclick = function () {
-			pixelCanvas.fillColor = c;
-		};
-		colorsButton.appendChild(button);
-	}
+	colorsButton.style.gridTemplateColumns = `repeat(${Object.keys(anshan2.colors).length}, 1fr)`;
+	for (let c in anshan2.colors)
+		colorsButton.appendChild(clickButton(
+			c == 'Z' ? "擦除" : c,
+			function () { pixelCanvas.fillColor = c; },
+			{background: `linear-gradient(to right, ${anshan2.colors[c]}, white, ${anshan2.colors[c]})`}));
 	let patternsButton = document.getElementById("patterns");
 	patternsButton.style.display='grid';
-	patternsButton.style.gridTemplateColumns = 'repeat(9, 1fr)';
-	for (let p of [1,2,3,4,5,6,7,8].map(n => [n,anshan2.patterns[n-1]]).concat([["清空","Z"]])) {
-		let button = document.createElement('button');
-		button.textContent = p[0];
-		button.onclick = function() {
-			pixelCanvas.paint(p[1]);
-		};
-		patternsButton.appendChild(button);
-	}
+	patternsButton.style.gridTemplateColumns = `repeat(${anshan2.patterns.length+1}, 1fr)`;
+	for (let i in anshan2.patterns)
+		patternsButton.appendChild(clickButton(parseInt(i)+1, () => { pixelCanvas.paint(anshan2.patterns[i]); }));
+	patternsButton.appendChild(clickButton("清空", () => { pixelCanvas.paint("Z"); }));
 </script>
 </body>
 </html>
