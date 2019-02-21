@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head> 
-<meta charset="utf-8">
-<title>像素板</title>
-<script src="PixelCanvas.js"></script>
-<script src="data.js"></script>
+	<meta charset="utf-8">
+	<title>像素板</title>
+	<script src="PixelCanvas.js"></script>
+	<script src="data.js"></script>
 </head>
 <body>
+<div id="schemes" style="display: grid; grid-template-columns: repeat(3, 1fr);">
+	<button>鞍山第一期（暂缺）</button>
+	<button onclick="main(albacore1)">大青花鱼</button>
+	<button onclick="main(anshan2)">鞍山第二期</button>
+</div>
 <div id="colors"></div>
 <div id="patterns"></div>
 <hr/>
 <canvas id="canvas">您的浏览器不支持canvas。</canvas>
 <button onclick="pixelCanvas.save()">保存</button>
 <script>
+function main(scheme) {
 	let canvas = document.getElementById("canvas");
-	pixelCanvas = new PixelCanvas(canvas, anshan2.width, anshan2.height, anshan2.colors, 'Z');
+	pixelCanvas = new PixelCanvas(canvas, scheme.width, scheme.height, scheme.colors, 'Z');
 	pixelCanvas.canvas.onclick = function (event) {
 		let pixelSize = pixelCanvas.pixelSize;
 		let borderSize = pixelCanvas.borderSize;
@@ -34,19 +40,23 @@
 		return button;
 	}
 	let colorsButton = document.getElementById("colors");
-	colorsButton.style.display='grid';
-	colorsButton.style.gridTemplateColumns = `repeat(${Object.keys(anshan2.colors).length}, 1fr)`;
-	for (let c in anshan2.colors)
+	colorsButton.innerHTML = "";
+	colorsButton.style.display = 'grid';
+	colorsButton.style.gridTemplateColumns = `repeat(${Object.keys(scheme.colors).length}, 1fr)`;
+	for (let c in scheme.colors)
 		colorsButton.appendChild(clickButton(
 			c == 'Z' ? "擦除" : c,
 			function () { pixelCanvas.fillColor = c; },
-			{background: `linear-gradient(to right, ${anshan2.colors[c]}, white, ${anshan2.colors[c]})`}));
+			{background: `linear-gradient(to right, ${scheme.colors[c]}, white, ${scheme.colors[c]})`}));
 	let patternsButton = document.getElementById("patterns");
-	patternsButton.style.display='grid';
-	patternsButton.style.gridTemplateColumns = `repeat(${anshan2.patterns.length+1}, 1fr)`;
-	for (let i in anshan2.patterns)
-		patternsButton.appendChild(clickButton(parseInt(i)+1, () => { pixelCanvas.paint(anshan2.patterns[i]); }));
+	patternsButton.innerHTML = "";
+	patternsButton.style.display = 'grid';
+	patternsButton.style.gridTemplateColumns = `repeat(${scheme.patterns.length+1}, 1fr)`;
+	for (let i in scheme.patterns)
+		patternsButton.appendChild(clickButton(parseInt(i)+1, () => { pixelCanvas.paint(scheme.patterns[i]); }));
 	patternsButton.appendChild(clickButton("清空", () => { pixelCanvas.paint("Z"); }));
+}
+main(anshan2);
 </script>
 </body>
 </html>
