@@ -375,3 +375,23 @@ let albacore1 = {
 		"EBEECABGGBZBAAZBZZZZBFBZZBFBGCCEEEAEA"
 	]
 };
+let dye = {
+	colors: {
+		'Bk': "#1D1D21", /*black*/
+		'R' : "#B02E26", /*red*/
+		'Gr': "#5E7C16", /*green*/
+		'Br': "#835432", /*brown*/
+		'Bl': "#3C44AA", /*blue*/
+		'Pp': "#8932B8", /*purple*/
+		'C' : "#169C9C", /*cyan*/
+		'Lg': "#9D9D97", /*light gray*/
+		'Gy': "#474F52", /*gray*/
+		'Pk': "#F38BAA", /*pink*/
+		'L' : "#80C71F", /*lime*/
+		'Y' : "#FED83D", /*yellow*/
+		'Lb': "#3AB3DA", /*light blue*/
+		'M' : "#C74EBD", /*magenta*/
+		'O' : "#F9801D", /*orange*/
+		'W' : "#F9FFFE"  /*white*/
+	}
+};
