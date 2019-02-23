@@ -388,7 +388,7 @@ let anshan1 = {
 		'G': "#4D3D3D",
 		'Z': "#C9C9C9"
 	},
-	patterns = [
+	patterns: [
 		/*1*/
 		"ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"+
 		"ZZZZZZZZZZZZZZZZZZZZZZZZZZZAAZZZZZZZZ"+
