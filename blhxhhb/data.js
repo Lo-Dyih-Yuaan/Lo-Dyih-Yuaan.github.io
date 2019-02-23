@@ -375,6 +375,18 @@ let albacore1 = {
 		"EBEECABGGBZBAAZBZZZZBFBZZBFBGCCEEEAEA"
 	]
 };
+let anshan1 = {
+	colors: {
+		'A': "#FFFFFF",
+		'B': "#FFF8E6",
+		'C': "#FEF9B7",
+		'D': "#EFBD8A",
+		'E': "#FFBFC5",
+		'F': "#FF3E56",
+		'G': "#4D3D3D",
+		'Z': "#C9C9C9"
+	}
+};
 let dye = {
 	colors: {
 		'Bk': "#1D1D21", /*black*/
