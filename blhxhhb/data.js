@@ -376,6 +376,8 @@ let albacore1 = {
 	]
 };
 let anshan1 = {
+	width: 37,
+	height: 22,
 	colors: {
 		'A': "#FFFFFF",
 		'B': "#FFF8E6",
