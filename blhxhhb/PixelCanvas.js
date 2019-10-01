@@ -54,7 +54,6 @@ PixelCanvas.prototype = {
 				}
 		}
 		this.fillColor = temp;
-		console.log(pattern.length, this.width*this.height);
 	},
 	save: function () {
 		let imgDataURI = this.canvas.toDataURL("image/png");

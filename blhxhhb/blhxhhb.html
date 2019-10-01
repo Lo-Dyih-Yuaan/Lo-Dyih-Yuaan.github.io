@@ -4,13 +4,15 @@
 	<meta charset="utf-8">
 	<title>像素板</title>
 	<script src="PixelCanvas.js"></script>
-	<script src="data.js"></script>
+	<script src="data.min.js"></script>
 </head>
 <body>
-<div id="schemes" style="display: grid; grid-template-columns: repeat(3, 1fr);">
+<div id="schemes" style="display: grid; grid-template-columns: repeat(5, 1fr);">
 	<button onclick="main(anshan1)">鞍山第一期</button>
 	<button onclick="main(albacore1)">大青花鱼</button>
 	<button onclick="main(anshan2)">鞍山第二期</button>
+	<button onclick="main(akashi1)">明石</button>
+	<button onclick="main(jupiter1)">丘比特</button>
 </div>
 <div id="colors"></div>
 <div id="patterns"></div>
@@ -56,7 +58,7 @@ function main(scheme) {
 		patternsButton.appendChild(clickButton(parseInt(i)+1, () => { pixelCanvas.paint(scheme.patterns[i]); }));
 	patternsButton.appendChild(clickButton("清空", () => { pixelCanvas.paint("Z"); }));
 }
-main(anshan2);
+main(jupiter1);
 </script>
 </body>
 </html>
