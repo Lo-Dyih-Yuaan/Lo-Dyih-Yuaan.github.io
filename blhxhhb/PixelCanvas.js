@@ -34,7 +34,7 @@ PixelCanvas.prototype = {
 	},
 	paint: function (patternStr) {
 		let temp = this.fillColor;
-		let pattern = patternStr.split(/(?=[A-Z])/);
+		let pattern = patternStr.split(/(?=[A-Z_])/);
 		if (pattern.length == 1) {
 			this.fillColor = pattern[0];
 			for (let i = 0; i < this.height; ++i)
