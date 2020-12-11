@@ -7,12 +7,13 @@
 	<script src="data.min.js"></script>
 </head>
 <body>
-<div id="schemes" style="display: grid; grid-template-columns: repeat(5, 1fr);">
+<div id="schemes" style="display: grid; grid-template-columns: repeat(6, 1fr);">
 	<button onclick="main(anshan1)">鞍山第一期</button>
 	<button onclick="main(albacore1)">大青花鱼</button>
 	<button onclick="main(anshan2)">鞍山第二期</button>
 	<button onclick="main(akashi1)">明石</button>
 	<button onclick="main(jupiter1)">丘比特</button>
+	<button onclick="main(anshan3)">鞍山第三期</button>
 </div>
 <div id="colors"></div>
 <div id="patterns"></div>
@@ -60,7 +61,7 @@ function main(scheme) {
 	patternsButton.appendChild(clickButton("清空", () => { pixelCanvas.paint(defaultColor); }));
 	window.blhxhhb = pixelCanvas
 }
-main(jupiter1);
+main(anshan3);
 </script>
 </body>
 </html>
